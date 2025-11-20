@@ -1,0 +1,20 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio / VS Code files
+*.user
+*.suo
+*.vscode/
+*.vs/
+
+# Logs
+*.log
+
+# Local database files if exists
+*.db
+*.sqlite
+
+# Optional: local secrets
+appsettings.Development.json
+appsettings.json
