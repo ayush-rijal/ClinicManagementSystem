@@ -1,8 +1,28 @@
+using Clinic_Management_System.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+
+//Add DbContext with SQl Server
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//Add Controllers
+builder.Services.AddControllers();
+
+
+// Add Swagger
+//allows tools (like Swagger UI) to discover all your API endpoints
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();//generate swagger docs
+
+
 
 var app = builder.Build();
 
